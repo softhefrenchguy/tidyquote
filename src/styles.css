@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { @apply border-slate-200; }
+  html { @apply scroll-smooth; }
+  body { @apply m-0 min-w-[320px] bg-[#f8faf9] font-sans text-slate-700 antialiased; }
+  button, input, select { font: inherit; }
+  button, a { -webkit-tap-highlight-color: transparent; }
+  button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible { @apply outline-none ring-2 ring-sage-500 ring-offset-2; }
+  ::selection { @apply bg-sage-200 text-ink; }
+}
+
+@layer components {
+  .page-shell { @apply mx-auto max-w-6xl px-4 pb-28 pt-7 sm:px-6 md:pb-16 md:pt-12; }
+  .card { @apply rounded-2xl border border-slate-200/80 bg-white shadow-card; }
+  .section-kicker { @apply text-[10px] font-bold uppercase tracking-[.17em] text-sage-600; }
+  .section-title { @apply mt-0.5 text-lg font-bold tracking-tight text-ink; }
+  .field-label { @apply block text-xs font-bold uppercase tracking-[.08em] text-slate-500; }
+  .text-input { @apply mt-2 min-h-12 w-full rounded-xl border border-slate-200 bg-white px-4 text-base font-medium normal-case tracking-normal text-ink placeholder:font-normal placeholder:text-slate-300 hover:border-slate-300 focus:border-sage-500 focus:ring-sage-500; }
+  .input-with-affixes { @apply mt-2 flex min-h-12 items-center overflow-hidden rounded-xl border border-slate-200 bg-white focus-within:border-sage-500 focus-within:ring-2 focus-within:ring-sage-500 focus-within:ring-offset-2; }
+  .input-with-affixes > span { @apply px-3 text-sm font-semibold normal-case tracking-normal text-slate-400; }
+  .input-with-affixes > input { @apply h-12 min-w-0 flex-1 border-0 bg-transparent px-0 text-base font-semibold normal-case tracking-normal text-ink outline-none ring-0 focus:ring-0; }
+  .button-primary { @apply inline-flex min-h-[52px] items-center justify-center gap-2 rounded-xl bg-sage-600 px-5 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-sage-700 active:scale-[.99]; }
+  .button-secondary { @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-bold text-ink transition hover:bg-slate-50; }
+  .button-whatsapp { @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 py-3 text-sm font-bold text-white transition hover:bg-[#1fbd5b]; }
+  .button-quiet { @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-ink shadow-sm hover:bg-slate-50; }
+  .stepper { @apply flex h-11 shrink-0 items-center gap-1 rounded-xl border border-slate-200 bg-white p-1 shadow-sm; }
+  .stepper-button { @apply grid h-9 w-9 place-items-center rounded-lg text-sage-700 transition hover:bg-sage-50 disabled:cursor-not-allowed disabled:text-slate-300 disabled:hover:bg-transparent; }
+  .nav-desktop { @apply flex min-h-11 items-center gap-2 rounded-lg px-5 text-sm font-bold text-slate-500 transition hover:text-ink; }
+  .nav-desktop-active { @apply bg-white text-sage-700 shadow-sm; }
+  .mobile-nav-item { @apply flex min-h-[68px] flex-col items-center justify-center gap-0.5 text-[11px] font-bold; }
+  .choice-card { @apply relative cursor-pointer rounded-xl border border-slate-200 bg-white p-4 transition hover:border-sage-300; }
+  .choice-card-selected { @apply border-sage-500 bg-sage-50 ring-1 ring-sage-500; }
+  .choice-dot { @apply absolute right-3 top-3 grid h-4 w-4 place-items-center rounded-full border border-slate-300; }
+  .choice-dot-selected { @apply border-sage-600; }
+  .choice-dot-selected > span { @apply h-2 w-2 rounded-full bg-sage-600; }
+  .check-input { @apply h-5 w-5 shrink-0 cursor-pointer rounded border-slate-300 text-sage-600 focus:ring-sage-500; }
+  .settings-row { @apply flex min-h-[66px] items-center justify-between gap-4 rounded-xl border border-slate-200 bg-slate-50/50 px-4 py-3; }
+  .editable-name { @apply min-w-0 flex-1 border-0 bg-transparent p-0 text-sm font-bold text-ink outline-none placeholder:text-slate-300 focus:ring-0; }
+  .number-suffix { @apply flex h-10 w-[108px] shrink-0 items-center overflow-hidden rounded-lg border border-slate-200 bg-white focus-within:border-sage-500 focus-within:ring-1 focus-within:ring-sage-500; }
+  .number-suffix > input { @apply h-full min-w-0 flex-1 border-0 bg-transparent py-0 pl-3 pr-1 text-right text-sm font-bold text-ink outline-none focus:ring-0; }
+  .number-suffix > span { @apply pr-3 text-xs font-semibold text-slate-400; }
+}
+
+.quote-glow {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  right: -80px;
+  top: -90px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(112,171,139,.35), rgba(112,171,139,0) 70%);
+}
+
+.onboarding-blob { position: absolute; border-radius: 999px; filter: blur(1px); opacity: .5; }
+.onboarding-blob-one { width: 340px; height: 340px; top: -180px; right: -100px; background: #c9e0d3; }
+.onboarding-blob-two { width: 240px; height: 240px; bottom: -130px; left: -90px; background: #f7cfa9; opacity: .35; }
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button { appearance: none; margin: 0; }
+input[type='number'] { -moz-appearance: textfield; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
